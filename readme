@@ -1,3 +1,627 @@
-# this is the readme file that is used to check the what is inside the code 
+# Git & GitHub Commands
 
-this change is from local computergit
+This repository contains the Git and GitHub commands I learned while studying Git for DevOps.
+
+---
+
+# What is Git?
+
+Git is a **Distributed Version Control System (DVCS)** that tracks changes in source code. It allows multiple developers to collaborate on the same project while maintaining a complete history of changes.
+
+### Benefits of Git
+
+* Tracks file changes
+* Maintains project history
+* Supports collaboration
+* Enables branching and merging
+* Allows reverting to previous versions
+* Integrates with GitHub, GitLab, and Bitbucket
+
+---
+
+# Git Configuration
+
+## Set Username
+
+```bash
+git config --global user.name "Your Name"
+```
+
+Sets your Git username globally.
+
+---
+
+## Set Email
+
+```bash
+git config --global user.email "your@email.com"
+```
+
+Sets your Git email globally.
+
+---
+
+## View Configuration
+
+```bash
+git config --list
+```
+
+Displays all configured Git settings.
+
+---
+
+# Repository Initialization
+
+## Initialize Repository
+
+```bash
+git init
+```
+
+Creates a new Git repository in the current directory.
+
+---
+
+# Checking Repository Status
+
+## Check Status
+
+```bash
+git status
+```
+
+Shows modified, staged, and untracked files.
+
+---
+
+# Staging Files
+
+## Stage One File
+
+```bash
+git add filename
+```
+
+Stages a specific file.
+
+---
+
+## Stage All Files
+
+```bash
+git add .
+```
+
+Stages all modified files.
+
+---
+
+# Commit Changes
+
+```bash
+git commit -m "Your commit message"
+```
+
+Creates a snapshot of the staged changes.
+
+---
+
+# Branch Management
+
+## List Branches
+
+```bash
+git branch
+```
+
+Displays all local branches.
+
+---
+
+## Rename Current Branch
+
+```bash
+git branch -m main
+```
+
+Renames the current branch to **main**.
+
+---
+
+## Switch Branch
+
+```bash
+git switch branch-name
+```
+
+Moves to another branch.
+
+Example:
+
+```bash
+git switch feature-login
+```
+
+---
+
+# Viewing History
+
+## Show Commit History
+
+```bash
+git log
+```
+
+Displays the commit history.
+
+---
+
+## Detailed Commit History
+
+```bash
+git log -p -n 5
+```
+
+Shows the last 5 commits with code changes.
+
+---
+
+## Commit Statistics
+
+```bash
+git log --stat
+```
+
+Displays modified files and number of insertions/deletions.
+
+---
+
+## One-Line History
+
+```bash
+git log --pretty=oneline
+```
+
+Shows each commit in one line.
+
+---
+
+## Custom Log Format
+
+```bash
+git log --pretty=format:"%h - %an, %ar : %s"
+```
+
+Displays:
+
+* Short Hash
+* Author
+* Relative Time
+* Commit Message
+
+---
+
+## Search Commits by Function
+
+```bash
+git log -S "functionName"
+```
+
+Finds commits where a specific string was added or removed.
+
+---
+
+## Search Commit Message
+
+```bash
+git log --grep="login"
+```
+
+Finds commits containing a specific keyword.
+
+---
+
+## Commits Since a Date
+
+```bash
+git log --since="2026-08-01"
+```
+
+Shows commits after a specific date.
+
+---
+
+## Commits Until a Date
+
+```bash
+git log --until="2026-08-05"
+```
+
+Shows commits before a specific date.
+
+---
+
+## Commits by Author
+
+```bash
+git log --author="Ahmad"
+```
+
+Shows commits created by a specific author.
+
+---
+
+## Exclude Merge Commits
+
+```bash
+git log --no-merges
+```
+
+Shows only normal commits.
+
+---
+
+# Compare Changes
+
+## View Differences
+
+```bash
+git diff
+```
+
+Shows changes that haven't been staged.
+
+---
+
+# View Commit Details
+
+```bash
+git show COMMIT_ID
+```
+
+Displays complete information about a commit.
+
+---
+
+## View a File from a Commit
+
+```bash
+git show COMMIT_ID:filename
+```
+
+Displays a file exactly as it existed in a specific commit.
+
+---
+
+# Restore Files
+
+## Restore Working File
+
+```bash
+git restore filename
+```
+
+Discards local changes.
+
+---
+
+## Unstage File
+
+```bash
+git restore --staged filename
+```
+
+Removes a file from the staging area.
+
+---
+
+## Restore Working Tree
+
+```bash
+git restore --worktree filename
+```
+
+Restores only the working directory version.
+
+---
+
+## Restore File from a Commit
+
+```bash
+git checkout COMMIT_ID -- filename
+```
+
+Recovers a file from a previous commit.
+
+---
+
+## Switch Back to Main
+
+```bash
+git checkout main
+```
+
+Switches to the main branch.
+
+---
+
+# Reset Commits
+
+## Soft Reset
+
+```bash
+git reset --soft HEAD^
+```
+
+Removes the last commit while keeping changes staged.
+
+---
+
+## Hard Reset
+
+```bash
+git reset --hard HEAD^
+```
+
+Deletes the last commit and all associated changes permanently.
+
+---
+
+# Remote Repositories
+
+## View Remote Repository
+
+```bash
+git remote
+```
+
+Lists configured remotes.
+
+---
+
+## Push First Time
+
+```bash
+git push -u origin main
+```
+
+Pushes the current branch and sets the upstream branch.
+
+---
+
+# Clone Repository
+
+```bash
+git clone repository-url
+```
+
+Downloads an existing Git repository.
+
+---
+
+# Git Ignore
+
+Create a file named:
+
+```text
+.gitignore
+```
+
+Example:
+
+```text
+node_modules/
+.env
+*.log
+dist/
+```
+
+Git ignores these files and directories.
+
+---
+
+# Cleaning Files
+
+## Preview Files to Remove
+
+```bash
+git clean -n
+```
+
+Shows which untracked files will be deleted.
+
+---
+
+## Delete Untracked Files
+
+```bash
+git clean -f
+```
+
+Removes untracked files.
+
+---
+
+## Delete Untracked Files and Directories
+
+```bash
+git clean -fd
+```
+
+Removes untracked files and folders.
+
+---
+
+# Tags
+
+## List Tags
+
+```bash
+git tag
+```
+
+Displays all tags.
+
+---
+
+## Create Tag
+
+```bash
+git tag v1.0
+```
+
+Creates a lightweight tag.
+
+---
+
+## Push Tag
+
+```bash
+git push origin v1.0
+```
+
+Uploads the tag to GitHub.
+
+---
+
+# GitHub Basics
+
+## Fork
+
+Creates your own copy of another developer's repository on GitHub.
+
+---
+
+## Clone
+
+Downloads a GitHub repository to your local machine.
+
+---
+
+## Push
+
+Uploads local commits to GitHub.
+
+---
+
+## Pull *(Recommended to Learn)*
+
+```bash
+git pull
+```
+
+Downloads and merges changes from GitHub.
+
+---
+
+## Fetch *(Recommended to Learn)*
+
+```bash
+git fetch
+```
+
+Downloads remote changes without merging them.
+
+---
+
+## Merge *(Recommended to Learn)*
+
+```bash
+git merge branch-name
+```
+
+Merges another branch into the current branch.
+
+---
+
+## Stash *(Recommended to Learn)*
+
+```bash
+git stash
+```
+
+Temporarily saves uncommitted work.
+
+Restore it:
+
+```bash
+git stash pop
+```
+
+---
+
+## Reflog *(Recommended to Learn)*
+
+```bash
+git reflog
+```
+
+Shows every movement of HEAD and helps recover lost commits.
+
+---
+
+## Revert *(Recommended to Learn)*
+
+```bash
+git revert COMMIT_ID
+```
+
+Safely undoes a commit by creating a new commit.
+
+---
+
+## Blame *(Recommended to Learn)*
+
+```bash
+git blame filename
+```
+
+Shows who last modified each line of a file.
+
+---
+
+# Hosting a Static Website on GitHub
+
+1. Push your project to GitHub.
+2. Open the repository.
+3. Go to **Settings**.
+4. Click **Pages**.
+5. Under **Source**, select:
+
+   * Deploy from a branch
+6. Select:
+
+   * Branch: `main`
+   * Folder: `/root`
+7. Save the settings.
+8. Wait a few minutes.
+9. GitHub will generate a URL for your website.
+
+Example:
+
+```
+https://username.github.io/repository-name/
+```
+
+---
+
+# Commands to Learn Next
+
+* `git pull`
+* `git fetch`
+* `git merge`
+* `git rebase`
+* `git stash`
+* `git stash pop`
+* `git cherry-pick`
+* `git reflog`
+* `git revert`
+* `git blame`
+* `git remote -v`
+* `git merge --abort`
+
+---
+
+# Conclusion
+
